@@ -1,0 +1,6 @@
+defect_id,date_raised,entity,natural_key,rule_id,severity,description,root_cause,owner,status,resolution,date_resolved
+DEF-001,2026-06-17,customers,C004,C-EMAIL-01,ERROR,Missing email for customer C004,Source extract had blank email,Source System Team,Open,,
+DEF-002,2026-06-17,customers,C006,C-CREDIT-02,ERROR,Negative credit limit (-5000),Sign flip in source feed,Finance Data Team,In Progress,Correcting sign in source,
+DEF-003,2026-06-17,orders,O1007,O-FK-01,ERROR,Order references non-existent customer C999,Customer not migrated / typo,Migration Team,Open,,
+DEF-004,2026-06-17,products,P015,P-CCY-01,ERROR,Currency XYZ not in ISO 4217 set,Free-text currency field at source,Source System Team,Open,,
+DEF-005,2026-06-17,orders,O1011,O-DISC-01,ERROR,Discount 200% out of range,No validation at point of entry,App Team,Open,,

@@ -1,0 +1,17 @@
+customer_id,first_name,last_name,email,phone,country,signup_date,segment,credit_limit
+C001,John,Smith,john.smith@example.com,+1-202-555-0101,USA,2021-03-15,Enterprise,50000
+C002,Maria,Garcia,maria.garcia@example.com,+34-91-555-0102,Spain,2021-04-20,SMB,15000
+C003,Wei,Chen,wei.chen@example.com,+86-10-5550-0103,China,2021-05-11,Enterprise,75000
+C004,Aisha,Khan,,+91-11-5550-0104,India,2021-06-02,SMB,12000
+C005,Carlos,,carlos@@example.com,+55-11-5550-0105,Brazil,2021/07/18,Consumer,2000
+C006,Emma,Johnson,emma.johnson@example.com,5550106,United States,2021-08-09,Enterprise,-5000
+C007,Liam,Brown,liam.brown@example.com,+44-20-5550-0107,UK,,SMB,18000
+C008,Olivia,Davis,olivia.davis@example.com,+1-202-555-0108,USA,2021-09-30,consumer,3000
+C008,Olivia,Davis,olivia.davis@example.com,+1-202-555-0108,USA,2021-09-30,Consumer,3000
+C009,Noah,Wilson,noah.wilson@example,+1-202-555-0109,USA,2021-10-12,Enterprise,60000
+C010,Sophia,Martinez,sophia.martinez@example.com,+52-55-5550-0110,Mexico,2021-11-05,SMB,22000
+C011,  James  ,Anderson,james.anderson@example.com,+1-202-555-0111,USA,2021-12-19,Enterprise,abc
+C012,Isabella,Thomas,isabella.thomas@example.com,+1-202-555-0112,Canada,2022-01-08,Consumer,4000
+C013,Lucas,Taylor,lucas.taylor@example.com,+1-202-555-0113,usa,2022-02-14,SMB,16000
+C014,Mia,Moore,MIA.MOORE@EXAMPLE.COM,+1-202-555-0114,USA,2022-03-22,Enterprise,55000
+C015,Ethan,Jackson,ethan.jackson@example.com,+1-202-555-0115,USA,2050-04-01,Consumer,5000

@@ -1,0 +1,21 @@
+rule_id,entity,field,severity,description,rationale
+C-PK-01,customers,customer_id,ERROR,Customer id must be present,Cannot load a record without a primary key
+C-EMAIL-01,customers,email,ERROR,Email must be present and well-formed,Email is the primary contact / matching key
+C-SEG-01,customers,segment,WARN,Segment must be in {Enterprise,SMB,Consumer},Downstream segmentation reporting depends on clean code-set
+C-CREDIT-01,customers,credit_limit,WARN,Credit limit must be numeric,Non-numeric values cannot be used in risk calcs
+C-CREDIT-02,customers,credit_limit,ERROR,Credit limit must be non-negative,Negative limits are financially invalid
+C-DATE-01,customers,signup_date,WARN,Signup date must be parseable,Unparseable dates break cohort analysis
+C-DATE-02,customers,signup_date,ERROR,Signup date must not be in the future,Future signup is impossible; indicates bad source data
+P-PK-01,products,product_id,ERROR,Product id must be present,Primary key required
+P-PRICE-01,products,unit_price,WARN,Unit price should be present,Missing price blocks revenue derivation
+P-PRICE-02,products,unit_price,ERROR,Unit price must be non-negative,Negative price is invalid
+P-CCY-01,products,currency,ERROR,Currency must be in allowed ISO 4217 set,Unknown currency breaks FX conversion
+O-PK-01,orders,order_id/customer_id/product_id,ERROR,Key fields must be present,Cannot load order without keys
+O-FK-01,orders,customer_id,ERROR,Customer must exist in dim_customers,Referential integrity
+O-FK-02,orders,product_id,ERROR,Product must exist in dim_products,Referential integrity
+O-QTY-01,orders,quantity,ERROR,Quantity must be a positive integer,Zero/negative quantity is invalid
+O-QTY-02,orders,quantity,WARN,Quantity over 10000 is suspicious,Likely data entry error; review before load
+O-PRICE-01,orders,unit_price,ERROR,Order unit price must be positive,Zero price distorts revenue
+O-DISC-01,orders,discount_pct,ERROR,Discount must be between 0 and 100,Out-of-range discount produces wrong net amount
+O-STATUS-01,orders,status,ERROR,Status must be in allowed code-set,Unknown status breaks fulfillment reporting
+O-DATE-01,orders,order_date,WARN,Order date must be parseable,Unparseable date breaks time-series reporting

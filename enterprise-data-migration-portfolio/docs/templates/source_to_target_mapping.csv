@@ -1,0 +1,27 @@
+entity,source_field,source_type,target_table,target_field,target_type,transformation_rule,validation_rule_id,notes
+customers,customer_id,TEXT,dim_customers,customer_id,TEXT,Trim; required natural key; dedupe keep-last,C-PK-01,Primary business key
+customers,first_name,TEXT,dim_customers,first_name,TEXT,Trim whitespace,,Cosmetic cleanse
+customers,last_name,TEXT,dim_customers,last_name,TEXT,Trim whitespace,,
+customers,email,TEXT,dim_customers,email,TEXT,Trim; lowercase,C-EMAIL-01,Must match email regex
+customers,phone,TEXT,dim_customers,phone,TEXT,Trim,,Format standardization out of scope
+customers,country,TEXT,dim_customers,country,TEXT,Map synonyms to canonical name (usa/us/United States -> USA),,Code-set standardization
+customers,signup_date,TEXT,dim_customers,signup_date,TEXT(ISO),Parse multiple formats to YYYY-MM-DD,C-DATE-01;C-DATE-02,No future dates allowed
+customers,segment,TEXT,dim_customers,segment,TEXT,Title-case to code-set Enterprise/SMB/Consumer,C-SEG-01,
+customers,credit_limit,TEXT,dim_customers,credit_limit,REAL,Cast to number; non-numeric -> NULL,C-CREDIT-01;C-CREDIT-02,Must be >= 0
+products,product_id,TEXT,dim_products,product_id,TEXT,Trim; required key; dedupe keep-last,P-PK-01,Primary business key
+products,product_name,TEXT,dim_products,product_name,TEXT,Trim,,
+products,category,TEXT,dim_products,category,TEXT,Trim,,
+products,unit_price,TEXT,dim_products,unit_price,REAL,Cast to number,P-PRICE-01;P-PRICE-02,Must be >= 0
+products,currency,TEXT,dim_products,currency,TEXT,Uppercase,P-CCY-01,Must be in {USD,EUR,GBP}
+products,active,TEXT,dim_products,active,INTEGER,Map Y/yes/1/true -> 1 else 0,,Boolean normalization
+products,launch_date,TEXT,dim_products,launch_date,TEXT(ISO),Parse to YYYY-MM-DD,,
+orders,order_id,TEXT,fact_orders,order_id,TEXT,Trim; required; dedupe keep-last,O-PK-01,
+orders,customer_id,TEXT,fact_orders,customer_id,TEXT,Trim; FK to dim_customers,O-FK-01,Referential integrity
+orders,product_id,TEXT,fact_orders,product_id,TEXT,Trim; FK to dim_products,O-FK-02,Referential integrity
+orders,order_date,TEXT,fact_orders,order_date,TEXT(ISO),Parse to YYYY-MM-DD,O-DATE-01,
+orders,quantity,TEXT,fact_orders,quantity,INTEGER,Cast to int,O-QTY-01;O-QTY-02,Must be 1..10000
+orders,unit_price,TEXT,fact_orders,unit_price,REAL,Cast to number,O-PRICE-01,Must be > 0
+orders,discount_pct,TEXT,fact_orders,discount_pct,REAL,Cast to number; default 0,O-DISC-01,Must be 0..100
+orders,status,TEXT,fact_orders,status,TEXT,Map to code-set COMPLETED/SHIPPED/CANCELLED/PENDING/RETURNED,O-STATUS-01,
+orders,(derived),,fact_orders,gross_amount,REAL,quantity * unit_price,,Derived measure
+orders,(derived),,fact_orders,net_amount,REAL,gross_amount * (1 - discount_pct/100),,Derived measure

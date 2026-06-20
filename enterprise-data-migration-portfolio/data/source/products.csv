@@ -1,0 +1,17 @@
+product_id,product_name,category,unit_price,currency,active,launch_date
+P001,Wireless Mouse,Accessories,25.99,USD,Y,2020-01-15
+P002,Mechanical Keyboard,Accessories,89.50,USD,Y,2020-02-20
+P003,27in Monitor,Displays,299.00,USD,Y,2020-03-10
+P004,USB-C Hub,Accessories,45.00,USD,yes,2020-04-05
+P005,Laptop Stand,Accessories,,USD,Y,2020-05-12
+P006,Webcam HD,Peripherals,59.99,usd,N,2020-06-18
+P007,Noise Cancelling Headset,Audio,149.99,EUR,Y,2020-07-22
+P008,Desk Lamp,Office,,USD,Y,2020-08-30
+P009,Laptop Sleeve,Accessories,19.99,USD,Y,
+P010,4K Monitor,Displays,549.00,USD,Y,2020-10-14
+P010,4K Monitor,Displays,549.00,USD,Y,2020-10-14
+P011,Standing Desk,Furniture,-399.00,USD,Y,2020-11-19
+P012,Ergonomic Chair,Furniture,425.00,GBP,Y,2020-12-01
+P013,Cable Organizer,Accessories,9.99,USD,Y,2021-01-09
+P014,Portable SSD,Storage,129.00,USD,N,2021-02-25
+P015,Docking Station,Peripherals,199.99,XYZ,Y,2021-03-30

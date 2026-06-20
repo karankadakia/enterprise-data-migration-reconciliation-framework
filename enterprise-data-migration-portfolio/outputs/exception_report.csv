@@ -1,0 +1,21 @@
+entity,natural_key,source_row,rule_id,severity,field,bad_value,message,detected_at
+customers,C006,,C-CREDIT-02,ERROR,credit_limit,-5000.0,Negative credit limit,2026-06-20 10:22:30
+customers,C015,,C-DATE-02,ERROR,signup_date,2050-04-01,Signup date is in the future,2026-06-20 10:22:30
+customers,C004,,C-EMAIL-01,ERROR,email,None,Missing or malformed email,2026-06-20 10:22:30
+customers,C005,,C-EMAIL-01,ERROR,email,carlos@@example.com,Missing or malformed email,2026-06-20 10:22:30
+customers,C009,,C-EMAIL-01,ERROR,email,noah.wilson@example,Missing or malformed email,2026-06-20 10:22:30
+orders,O1011,,O-DISC-01,ERROR,discount_pct,200.0,Discount percent out of 0-100 range,2026-06-20 10:22:30
+orders,O1007,,O-FK-01,ERROR,customer_id,C999,Customer not found in dim_customers (orphan),2026-06-20 10:22:30
+orders,O1008,,O-FK-02,ERROR,product_id,P999,Product not found in dim_products (orphan),2026-06-20 10:22:30
+orders,O1018,19,O-PK-01,ERROR,order_id/customer_id/product_id,O1018/C002/None,Missing key field(s); record skipped,2026-06-20 10:22:30
+orders,O1010,,O-PRICE-01,ERROR,unit_price,0.0,Unit price must be positive,2026-06-20 10:22:30
+orders,O1009,,O-QTY-01,ERROR,quantity,-1,Quantity must be a positive integer,2026-06-20 10:22:30
+orders,O1016,,O-STATUS-01,ERROR,status,None,Status not in allowed code-set,2026-06-20 10:22:30
+products,P015,,P-CCY-01,ERROR,currency,XYZ,Currency not in allowed ISO 4217 set,2026-06-20 10:22:30
+products,P011,,P-PRICE-02,ERROR,unit_price,-399.0,Negative unit price,2026-06-20 10:22:30
+customers,C011,,C-CREDIT-01,WARN,credit_limit,None,Credit limit not numeric / missing,2026-06-20 10:22:30
+customers,C007,,C-DATE-01,WARN,signup_date,None,Missing or unparseable signup date,2026-06-20 10:22:30
+orders,O1020,,O-DATE-01,WARN,order_date,None,Missing or unparseable order date,2026-06-20 10:22:30
+orders,O1021,,O-QTY-02,WARN,quantity,1000000,Quantity exceeds sane threshold (possible fat-finger),2026-06-20 10:22:30
+products,P005,,P-PRICE-01,WARN,unit_price,None,Missing unit price,2026-06-20 10:22:30
+products,P008,,P-PRICE-01,WARN,unit_price,None,Missing unit price,2026-06-20 10:22:30
